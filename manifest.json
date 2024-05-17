@@ -1,103 +1,19 @@
 {
-  "manifest_version": 2,
-  "version": "3",
-  "name": "Skiovox Helper V3",
-  "description": "fixed skiovox by theo",
-  "icons": {
-    "128": "icon.png"
-  },
-  
-  "commands": {
-    "ACCESS_HISTORY": {
-      "description": "Ctrl+H"
+    "$schema": "http://json.schemastore.org/chrome-manifest",    
+    "manifest_version": 3,
+    "name": "Skiovox Breakout",
+    "description": "BETA DO NOT SHARE",
+    "version": "0.0.1",
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvzYonl7NfLTHzQybyYOE+yk/tImTn9yqUINlg1UZ31k97SBekCE6/kOBrNYCUfegZMKdokaTLmFK1O2EodYy+a9DFn8RBROzNvuMJuuSjDI3EVq8RWoavJyCeki+5aLFdfYyJ97qqTmSpe7u9Uh00hBrA7Pott8wrjHZkf2z/SBV2gpJnjQ3PzdPDTszAQHMm12zVd2XPZbKtsqBSLBMb3P4E1e7XGf6BYw/LTQpOkgTTTzhfz/YXIMsYqg2dZdiwbDx3MVxg4R6rIkwN2BZtOfRx4MHGCbWJ79ci/V62wDm1uHk6tmiym/AYXJctArTLs5wj7Fi+ratroMf/x599wIDAQAB",
+    "permissions": [
+        "debugger",
+        "downloads",
+        "downloads.open"
+    ],
+    "background": {
+        "service_worker": "/sw.js"
     },
-    "ACCESS_DOWNLOADS": {
-      "description": "Ctrl+J"
-    },
-    "NEW_TAB": {
-      "description": "Ctrl+T"
-    },
-    "CLOSE_TAB": {
-      "description": "Ctrl+W"
-    },
-    "RESTORE_TAB": {
-      "description": "Ctrl+Shift+T"
-    },
-    "NEW_WINDOW": {
-      "description": "Ctrl+N"
-    },
-    "NEW_INCOG_WINDOW": {
-      "description": "Ctrl+Shift+N"
-    },
-    "CLOSE_WINDOW": {
-      "description": "Ctrl+Shift+W"
-    },
-    "TAB_NEXT": {
-      "description": "Cycle forwards through tabs: Ctrl+Q"
-    },
-    "TAB_BACK": {
-      "description": "Cycle backwards through tabs: Ctrl+Shift+Q"
-    },
-    "SWITCH_WINDOWS": {
-      "description": "Switch windows: Alt+Q"
-    },
-    "CTRL_1": {
-      "description": "Ctrl+1"
-    },
-    "CTRL_2": {
-      "description": "Ctrl+2"
-    },
-    "CTRL_3": {
-      "description": "Ctrl+3"
-    },
-    "CTRL_4": {
-      "description": "Ctrl+4"
-    },
-    "CTRL_5": {
-      "description": "Ctrl+5"
-    },
-    "CTRL_6": {
-      "description": "Ctrl+6"
-    },
-    "CTRL_7": {
-      "description": "Ctrl+7"
-    },
-    "CTRL_8": {
-      "description": "Ctrl+8"
-    },
-    "CTRL_9": {
-      "description": "Ctrl+9"
-    },
-    "VIEW_SOURCE": {
-      "description": "Ctrl+U"
+    "action": {
+        "default_popup": "./index.html"
     }
-  },
-  "background": {
-    "scripts": [
-      "/background/commands.js",
-      "/background/setup.js",
-      "/background/webstore-fix.js"
-    ]
-  },
-  "chrome_url_overrides": {
-    "newtab": "/new-tab/main.html"
-  },
-  "permissions": [
-    "commands",
-    "tabs",
-    "sessions",
-    "<all_urls>"
-  ],
-  "content_scripts": [
-    {
-      "matches": [
-        "*://*/*"
-      ],
-      "js": [
-        "/content-scripts/window-open-fix.js"
-      ],
-      "all-frames": true,
-      "run-at": "document_start"
-    }
-  ]
 }
